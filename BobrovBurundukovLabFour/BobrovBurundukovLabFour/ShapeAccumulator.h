@@ -20,46 +20,54 @@ public:
 
 	Shape* getMaxAreaShape()
 	{
-		auto maxPerimeterShape = *list.begin();
+		auto maxPerimeterShape = list.begin();
+		if (maxPerimeterShape == list.end()) return nullptr;
+
 		for (auto it = list.begin(); it != list.end(); it++)
 		{
-			if ((*it)->calcArea() > maxPerimeterShape->calcArea())
-				maxPerimeterShape = (*it);
+			if ((*it)->calcArea() > (*maxPerimeterShape).calcArea())
+				maxPerimeterShape = it;
 		}
-		return maxPerimeterShape;
+		return *maxPerimeterShape;
 	}
 
 	Shape* getMinAreaShape()
 	{
-		auto minAreaShape = *list.begin();
+		auto minAreaShape = list.begin();
+		if (minAreaShape == list.end()) return nullptr;
+
 		for (auto it = list.begin(); it != list.end(); it++)
 		{
-			if ((*it)->calcArea() < minAreaShape->calcArea())
-				minAreaShape = (*it);
+			if ((*it)->calcArea() < (*minAreaShape).calcArea())
+				minAreaShape = it;
 		}
-		return minAreaShape;
+		return *minAreaShape;
 	}
 
 	Shape* getMaxPerimeterShape()
 	{
-		auto maxPerimeterShape = *list.begin();
+		auto maxPerimeterShape = list.begin();
+		if (maxPerimeterShape == list.end()) return nullptr;
+
 		for (auto it = list.begin(); it != list.end(); it++)
 		{
-			if ((*it)->calcPerimeter() > maxPerimeterShape->calcPerimeter())
-				maxPerimeterShape = (*it);
+			if ((*it)->calcPerimeter() > (*maxPerimeterShape).calcPerimeter())
+				maxPerimeterShape = it;
 		}
-		return maxPerimeterShape;
+		return *maxPerimeterShape;
 	}
 
 	Shape* getMinPerimeterShape()
 	{
-		auto minPerimeterShape = *list.begin();
+		auto minPerimeterShape = list.begin();
+		if (minPerimeterShape == list.end()) return nullptr;
+
 		for (auto it = list.begin(); it != list.end(); it++)
 		{
-			if ((*it)->calcPerimeter() < minPerimeterShape->calcPerimeter()) 
-				minPerimeterShape = (*it);
+			if ((*it)->calcPerimeter() < (*minPerimeterShape).calcPerimeter()) 
+				minPerimeterShape = it;
 		}
-		return minPerimeterShape;
+		return *minPerimeterShape;
 	}
 
 	float getTotalArea()
